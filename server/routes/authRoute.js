@@ -31,7 +31,8 @@ router.post("/register", async (req, res) => {
 
 
 router.post("/login", async (req, res) => {
-    const { email, password,role } = req.body;
+    const { email, password, role } = req.body;
+    console.log("login",req.body)
     try {
         const user = await User.findOne({ email });
 
@@ -62,5 +63,7 @@ router.post("/login", async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 })
+
+
 
 module.exports=router
