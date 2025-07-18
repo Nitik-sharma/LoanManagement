@@ -22,7 +22,7 @@ function Login() {
       console.log("login sucess", res.data);
 
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("role", res.data.role);
+      localStorage.setItem("role", res.data.user.role);
 
       alert("Login sucessful !!");
       usenavigate("/")
@@ -55,7 +55,7 @@ function Login() {
             <Mail size={28} />
             <input
               type="email "
-              required="true"
+             required
               className="border-0  bg-transparent w-full text-sm md:text-base outline-none "
               placeholder="Enter your mail "
               onChange={(e)=>setEmail(e.target.value)}
@@ -66,7 +66,7 @@ function Login() {
             <KeyRound size={28} />
             <input
               type={show ? "text" : "password"}
-              required="true"
+              required
               className="border-0  bg-transparent w-full text-sm md:text-base outline-none "
               placeholder="Enter your password "
               onChange={(e=>setPassword(e.target.value))}

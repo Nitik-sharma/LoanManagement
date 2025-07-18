@@ -9,6 +9,7 @@ import UserDash from './pages/Dashboard/UserDash';
 import Navbar from './components/Navbar';
 import ApplyLoan from './pages/ApplyLoan';
 import Blogs from './pages/Blogs';
+import Admin from './pages/Admin';
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/admin/dashboard' element={<Admin/> } />
         <Route path='/apply' element={<ApplyLoan/>}/>
     </Routes>
     </BrowserRouter>

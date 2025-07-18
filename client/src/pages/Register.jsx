@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link,useNavigate } from "react-router-dom";
 import { Mail, KeyRound, EyeOff, Eye ,User,MousePointer} from "lucide-react";
 import logo from "../images/login.png";
@@ -12,10 +12,18 @@ function Register() {
   const navigate = useNavigate();
     const showPassword = () => {
       setShow(prev=>!prev);
+  }
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/"); // already logged in, go to home
     }
+  }, []);
   const submitForm = async(e) => {
     e.preventDefault();
     alert("Form submitted"); // ✅ this helps test if the function is even being called
+
     console.log("Name:", name, "Email:", email, "Password:", password);
     try {
       const res = await axios.post("http://localhost:5000/api/auth/register", {
