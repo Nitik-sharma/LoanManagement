@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Admin() {
@@ -118,6 +119,19 @@ function Admin() {
           )}
         </div>
       )}
+
+      <div className=" flex items-center justify-between gap-3">
+        <Link to="/create-blog">
+          <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-7">
+            ➕ Create New Blog
+          </button>
+        </Link>
+        <Link to="/blog-page">
+          <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-7">
+            ➕ Go to Blog Page
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

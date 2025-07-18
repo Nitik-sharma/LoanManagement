@@ -32,11 +32,12 @@ router.post('/create', Protect, isAdmin, async (req, res) => {
 
 // Get all blog
 
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
     console.log("Get all blog executed !!");
     try {
         const getBlog = await Blog.find().populate("author", "name email").sort({ createdAt: -1 });
-        res.status(200).json({ message: "Get all blog" }, getBlog);
+        console.log(getBlog)
+        res.status(200).json({ message: "Get all blog" ,blogs:getBlog});
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Something wrong to find blog !!" })
@@ -46,7 +47,7 @@ router.get("/", async (req, res) => {
 
 // update blog for Admin Only
 
-router.put("/:id", Protect, isAdmin, async (req, res) => {
+router.put("/update/:id", Protect, isAdmin, async (req, res) => {
     const { title, content, image } = req.body;
     
     try {
@@ -72,7 +73,7 @@ router.put("/:id", Protect, isAdmin, async (req, res) => {
 
 // delete the blog
 
-router.delete("/:id", Protect, isAdmin, async (req, res) => {
+router.delete("/delete/:id", Protect, isAdmin, async (req, res) => {
     try {
         const blog = await Blog.findByIdAndDelete(req.params.id);
         if (!blog) {

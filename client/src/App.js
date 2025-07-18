@@ -10,6 +10,8 @@ import Navbar from './components/Navbar';
 import ApplyLoan from './pages/ApplyLoan';
 import Blogs from './pages/Blogs';
 import Admin from './pages/Admin';
+import CreateBlogs from './pages/CreateBlogs';
+import BlogPage from './pages/BlogPage';
 function App() {
   return (
     <BrowserRouter>
@@ -20,7 +22,9 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/admin/dashboard' element={<Admin/> } />
-        <Route path='/apply' element={<ApplyLoan/>}/>
+        <Route path='/apply' element={<ApplyLoan />} />
+        <Route path='/create-blog' element={<CreateBlogs />} />
+        <Route path='/blog-page' element={<BlogPage/> } />
     </Routes>
     </BrowserRouter>
   );
