@@ -1,6 +1,7 @@
 import React from 'react'
 import banner from '../images/QuikFundr Logo_ Secure Financial Solutions.png';
-import { Plug,Telescope } from "lucide-react";
+import { Plug, Telescope } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
@@ -17,15 +18,20 @@ export default function HeroSection() {
             options — all in one place.
           </p>
 
-          <div className=' flex flex-col gap-6 sm:flex-row items-center justify-center mb-4'>
-            <button className=" bg-slate-100 text-indigo-600 px-6 py-5  flex items-center  gap-2 border-none hover:border rounded-md border-gray-400 hover:bg-slate-400 hover:text-gray-100 font-semibold">
-              <Plug />
-              Apply Now
-            </button>
-            <button className=" bg-slate-100 text-indigo-600 px-6 py-5  flex items-center  gap-2 border-none hover:border rounded-md border-gray-400 hover:bg-slate-400 hover:text-gray-100 font-semibold">
-              <Telescope />
-              Explore Blogs
-            </button>
+          <div className=" flex flex-col gap-6 sm:flex-row items-center justify-center mb-4">
+            <Link to={"/apply"}>
+              <button className=" bg-slate-100 text-indigo-600 px-6 py-5  flex items-center  gap-2 border-none hover:border rounded-md border-gray-400 hover:bg-slate-400 hover:text-gray-100 font-semibold hover:rounded-2xl">
+                <Plug />
+                Apply Now
+              </button>
+            </Link>
+
+            <Link to={"/blogs"}>
+              <button className=" bg-slate-100 text-indigo-600 px-6 py-5  flex items-center  gap-2 border-none hover:border rounded-md border-gray-400 hover:bg-slate-400 hover:text-gray-100 font-semibold hover:rounded-2xl">
+                <Telescope />
+                Explore Blogs
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -29,12 +29,12 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="/login" className="hover:underline">
+              <a href="/apply" className="hover:underline">
                 Apply Loan
               </a>
             </li>
             <li>
-              <a href="/login" className="hover:underline">
+              <a href="/blogs" className="hover:underline">
                 Blogs
               </a>
             </li>
@@ -59,7 +59,7 @@ function Footer() {
 
       {/* Bottom Footer */}
       <div className="mt-10 border-t border-indigo-600 pt-4 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} LoanSwift. All rights reserved.
+        © {new Date().getFullYear()} Quik Fundr. All rights reserved.
       </div>
 <div>
       </div>
