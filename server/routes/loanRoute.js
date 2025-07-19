@@ -9,7 +9,7 @@ const router = express.Router();
         const { loanType, amount, durationMonths } = req.body;
           console.log("🔁 Body:", req.body);
             console.log("🔑 User:", req.user);
-            console.log("🔍 Loan request body:", { loanType, amount, durationMonths });
+            console.log("🔍 Loan request body:", { loanType, amount, durationMonths,assignedAdmin });
 console.log("👤 User ID:", req.user?._id);
         try {
           
@@ -18,6 +18,7 @@ console.log("👤 User ID:", req.user?._id);
                 loanType,
                 amount,
                 durationMonths,
+                assignedAdmin,
                 
             });
             res.status(201).json(loan);
@@ -59,6 +60,16 @@ router.put("/status/:id", Protect, isAdmin, async (req, res) => {
     );
     res.json(loan);
 })
+
+router.get("/my-loan", Protect, async (req, res) => {
+    try {
+        const loan = await Loan.find({ assignedAdmin: req.user.id }).populate("user");
+        res.status(200).json(loan);
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" });
+    }
+})
+
 
 module.exports = router;
 

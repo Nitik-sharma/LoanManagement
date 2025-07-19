@@ -7,6 +7,7 @@ function ApplyLoan() {
   const [amount, setAmount] = useState("");
   const [durationMonths, setDurationMonths] = useState("");
   const [admin, setAdmin] = useState([]);
+  const [selectAdmin, setSelectAdmin] = useState("");
 
   // handle form
   const handleFormSubmit =async (e) => {
@@ -21,6 +22,7 @@ function ApplyLoan() {
           loanType,
           amount,
           durationMonths,
+          assignedAdmin: selectAdmin,
         },
         {
           headers: {
@@ -150,10 +152,12 @@ function ApplyLoan() {
           </div>
           <div className=" bg-gray-500  border-none py-2 px-3 rounded-md shadow-lg  w-full flex items-center">
             <select
-              value={"Select Admin"}
+              value={selectAdmin}
               name=""
               id=""
               className=" w-full bg-transparent border-none outline-none rounded-sm text-gray-800  font-bold"
+              onChange={(e)=>setSelectAdmin(e.target.value)}
+
             >
               <option value="">Select Admin</option>
               {admin.map((admin) => (

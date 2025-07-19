@@ -29,6 +29,11 @@ const loanSchema = new mongoose.Schema(
             default: "pending",
             
         },
+        assignedAdmin: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required:true,
+        }
 
 
     },
