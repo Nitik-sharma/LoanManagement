@@ -6,7 +6,7 @@ const router = express.Router();
 
 
     router.post("/apply", Protect, async (req, res) => {
-        const { loanType, amount, durationMonths } = req.body;
+        const { loanType, amount, durationMonths ,assignedAdmin} = req.body;
           console.log("🔁 Body:", req.body);
             console.log("🔑 User:", req.user);
             console.log("🔍 Loan request body:", { loanType, amount, durationMonths,assignedAdmin });
