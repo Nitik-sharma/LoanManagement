@@ -12,7 +12,7 @@ function Admin() {
     const fetchLoan = async () => {
     try {
       const res = await axios.get(
-        "https://loanmanagement-i08u.onrender.com/api/loan/all",
+        "https://loanmanagement-i08u.onrender.com/api/loan/my-loan",
         {
           headers: {
             Authorization: `Bearer ${token}`,
