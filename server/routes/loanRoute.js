@@ -61,7 +61,7 @@ router.put("/status/:id", Protect, isAdmin, async (req, res) => {
     res.json(loan);
 })
 
-router.get("/my-loan", Protect, async (req, res) => {
+router.get("/my-loan", Protect,isAdmin, async (req, res) => {
     try {
         const loan = await Loan.find({ assignedAdmin: req.user.id }).populate("user");
         res.status(200).json(loan);
