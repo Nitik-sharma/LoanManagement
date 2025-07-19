@@ -148,6 +148,22 @@ function ApplyLoan() {
               onChange={(e) => setDurationMonths(e.target.value)}
             />
           </div>
+          <div className=" bg-gray-500  border-none py-2 px-3 rounded-md shadow-lg  w-full flex items-center">
+            <select
+              value={"Select Admin"}
+              name=""
+              id=""
+              className=" w-full bg-transparent border-none outline-none rounded-sm text-gray-800  font-bold"
+            >
+              <option value="">Select Admin</option>
+              {admin.map((admin) => (
+                <option key={admin._id} value={admin._id}>
+{admin.name}({admin.email})
+                </option>
+
+              ))}
+            </select>
+          </div>
           <button
             type="submit"
             className=" w-full bg-sky-700 p-2 rounded-sm text-center font-bold text-gray-900 hover:bg-indigo-600 transition "
