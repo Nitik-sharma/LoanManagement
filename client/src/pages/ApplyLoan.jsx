@@ -157,7 +157,7 @@ function ApplyLoan() {
             >
               <option value="">Select Admin</option>
               {admin.map((admin) => (
-                <option key={admin._id} value={admin._id}>
+                <option key={admin._id} value={admin._id} className='bg-gray-600 text-gray-100 '>
 {admin.name}({admin.email})
                 </option>
 
