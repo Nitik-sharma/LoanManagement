@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../images/logo.png'
 import axios from 'axios';
 function ApplyLoan() {
   const [loanType, setLoanType] = useState("personal");
+
   const [amount, setAmount] = useState("");
   const [durationMonths, setDurationMonths] = useState("");
+  const [admin, setAdmin] = useState([]);
 
+  // handle form
   const handleFormSubmit =async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -33,8 +36,36 @@ function ApplyLoan() {
       console.error("❌ Error:", error);
       alert("Loan application failed!");
     }
+
+    
+
+
     console.log(loanType, amount, durationMonths);
   }
+
+  useEffect(() => {
+    const fetchAdmin = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const res = await axios.get(
+          "https://loanmanagement-i08u.onrender.com/api/user/all/admins", {
+            headers: {
+              Authorization:`Bearer ${token}`,
+            }
+          }
+        );
+
+        console.log("Data--->", res.data)
+        setAdmin(res.data);
+      } catch (error) {
+        console.error("Error fetching admins", error);
+      }
+    }
+    fetchAdmin()
+},[])
+
+
+
   return (
     <div className=" w-full h-screen bg-gradient-to-r from-orange-300 via-yellow-200 to-red-500 flex items-center justify-center ">
       <div className="w-[95%]  flex flex-col rounded-md shadow-lg text-gray-200 items-center justify-center gap-4 bg-gray-900  ">
