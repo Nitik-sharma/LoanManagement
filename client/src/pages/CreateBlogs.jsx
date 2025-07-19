@@ -10,12 +10,15 @@ function CreateBlogs() {
         const token = localStorage.getItem("token");
         try {
             const blog = await axios.post(
-                "http://localhost:5000/api/blog/create", {
-                  title,content
-            }, {
-                    headers: {
-                      Authorization:`Bearer ${token}`
-                  }
+              "https://loanmanagement-i08u.onrender.com/api/blog/create",
+              {
+                title,
+                content,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
               }
             );
             console.log(blog.data)

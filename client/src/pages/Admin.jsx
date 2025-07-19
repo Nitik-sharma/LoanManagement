@@ -11,12 +11,14 @@ function Admin() {
   useEffect(() => {
     const fetchLoan = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/loan/all", {
-        headers: {
-          Authorization:`Bearer ${token}`,
+      const res = await axios.get(
+        "https://loanmanagement-i08u.onrender.com/api/loan/all",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-
-      });
+      );
       console.log(res.data);
       setLoan(res.data);
       setLoading(false);
@@ -32,13 +34,17 @@ function Admin() {
 
   const updateLoanStatus = async (id,status) => {
     try {
-      const res = axios.put(`http://localhost:5000/api/loan/status/${id}`, {
-        status
-      }, {
-        headers: {
-          Authorization:`Bearer ${token}`
+      const res = axios.put(
+        `https://loanmanagement-i08u.onrender.com/api/loan/status/${id}`,
+        {
+          status,
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       alert(`Loan ${status} sucessfully`);
 
       // refrece list after update

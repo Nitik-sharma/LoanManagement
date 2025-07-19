@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -7,11 +7,14 @@ function Blogs() {
   const fetchBlogs = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:5000/api/blog/all", {
-        headers: {
-          Authorization:`Bearer ${token}`,
+      const res = await axios.get(
+        "https://loanmanagement-i08u.onrender.com/api/blog/all",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
+      );
       console.log(res.data.blogs);
       setBlogs(res.data.blogs);
     } catch (error) {

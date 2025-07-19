@@ -26,9 +26,15 @@ function Register() {
 
     console.log("Name:", name, "Email:", email, "Password:", password);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        name,email,password,role
-      })
+      const res = await axios.post(
+        "https://loanmanagement-i08u.onrender.com/api/auth/register",
+        {
+          name,
+          email,
+          password,
+          role,
+        }
+      );
       console.log("restartion ", res.data);
       alert("Registeration sucessfuly ");
       navigate("/login")

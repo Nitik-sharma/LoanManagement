@@ -13,7 +13,7 @@ function ApplyLoan() {
     if (!token) return alert("Please login for Apply ");
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/loan/apply",
+        "https://loanmanagement-i08u.onrender.com/api/loan/apply",
         {
           loanType,
           amount,

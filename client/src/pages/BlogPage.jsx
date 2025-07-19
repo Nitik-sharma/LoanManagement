@@ -7,12 +7,14 @@ function BlogPage() {
   const fetchBlogs = async (e) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:5000/api/blog/all", {
-        headers: {
-          Authorization:`Bearer ${token}`,
+      const res = await axios.get(
+        "https://loanmanagement-i08u.onrender.com/api/blog/all",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-        
-      });
+      );
       
       console.log("data--->",res.data.blogs)
       setBlogs(res.data.blogs)
@@ -31,11 +33,14 @@ function BlogPage() {
     const confirm = window.confirm("Are you sure you want to delete ? ");
     if (!confirm) return;
     try {
-      const deleteRes = axios.delete(`http://localhost:5000/api/blog/delete/${id}`, {
-        headers: {
-          Authorization:`Bearer ${token}`,
+      const deleteRes = axios.delete(
+        `https://loanmanagement-i08u.onrender.com/api/blog/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
+      );
       alert("✅ Blog deleted");
       fetchBlogs();
     } catch (error) {
@@ -55,7 +60,7 @@ function BlogPage() {
 
     try {
       const editRes = axios.put(
-        `http://localhost:5000/api/blog/update/${id}`,
+        `https://loanmanagement-i08u.onrender.com/api/blog/update/${id}`,
         {
           title,
           content,
